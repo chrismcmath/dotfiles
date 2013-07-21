@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+#None of this works:
+source $ZSH/oh-my-zsh.sh
+unsetopt correct
+DISABLE_CORRECTION="true"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -10,8 +14,15 @@ ZSH_THEME="blinks"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias unity2="/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath" 
+alias unity='/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath "/"'
 alias eprc="emacs ~/.procmailrc"
+alias ctags="`brew --prefix`/bin/ctags"
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias diff='colordiff'
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -34,9 +45,10 @@ alias eprc="emacs ~/.procmailrc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git github pip python)
 
 source $ZSH/oh-my-zsh.sh
+bindkey -v
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin

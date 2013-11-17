@@ -8,6 +8,7 @@ filetype off
 set expandtab
 set autoindent
 set smartindent
+set smartcase
 set number
 set guioptions-=T
 set guioptions-=e
@@ -57,20 +58,10 @@ execute pathogen#infect()
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
 
-" Smooth scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
 "Cursor highlighting
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
-
-"Window highlighting - this doesn't work (screws up colour palates)
-"au WinLeave * set background=dark
-"au WinEnter * set background=light
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>

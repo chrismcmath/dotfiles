@@ -22,7 +22,10 @@ alias ll='ls -l --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 alias diff='colordiff'
-
+alias gco='git checkout'
+alias gm='git merge'
+alias gs='git status'
+alias gl='git log'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -51,4 +54,4 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin:/Applications/git-annex.app/Contents/MacOS

@@ -1,17 +1,18 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-#None of this works:
-source $ZSH/oh-my-zsh.sh
-unsetopt correct
-DISABLE_CORRECTION="true"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="blinks"
+ 
+alias -s gz='tar -xzvf'
+alias -s bz2='tar -xjvf'
+alias -s zip='unzip'
+alias -s txt=$EDITOR
+alias -s html=$BROWSER
 
-# Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias unity='/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath "/"'
@@ -51,7 +52,16 @@ alias gl='git log'
 plugins=(git github pip python)
 
 source $ZSH/oh-my-zsh.sh
-bindkey -v
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin:/Applications/git-annex.app/Contents/MacOS
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin
+bindkey -v
+
+#powerline stuff
+POWERLINE_HIDE_USER_NAME="true"
+POWERLINE_HIDE_HOST_NAME="true"
+POWERLINE_RIGHT_A="Your very best text"
+POWERLINE_FULL_CURRENT_PATH="true"
+POWERLINE_DETECT_SSH="true"
+
+#. /var/folders/sx/6s4pvyw91z3845j3pztqprgr0000gn/T/pip-6qutcE-build/powerline/bindings/zsh/powerline.zsh

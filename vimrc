@@ -1,6 +1,7 @@
 syntax enable
 set background=dark
 colorscheme Monokai
+let g:molokai_original = 1
 set tabstop=4
 set shiftwidth=4
 filetype off
@@ -60,6 +61,13 @@ set tags=./tags,tags;$HOME
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <M-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Unite stuff
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite Ag:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
 execute pathogen#infect()
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
@@ -74,10 +82,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
-
-"Window highlighting - this doesn't work (screws up colour palates)
-"au WinLeave * set background=dark
-"au WinEnter * set background=light
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -110,6 +114,9 @@ set rtp+=/var/folders/sx/6s4pvyw91z3845j3pztqprgr0000gn/T/pip-6qutcE-build/power
 set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+
+"SCVim
+let g:sclangTerm = "open -a iTerm.app"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

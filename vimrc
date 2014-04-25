@@ -9,7 +9,6 @@ set expandtab
 set autoindent
 set smartindent
 set smartcase
-set scrolloff=9999
 
 set incsearch
 set showmatch
@@ -23,6 +22,8 @@ set number
 set guioptions-=T
 set guioptions-=e
 set guioptions-=r
+
+:set scrolloff=10
 
 set hlsearch
 hi Search guibg=LightBlue
@@ -55,6 +56,12 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " Tagbar
 nmap <leader>c :TagbarToggle<CR>
+
+" Quick refresh for CommandT
+nmap <leader>r :CommandTFlush<CR>
+
+" Reset font size
+nnoremap <D-0> :set guifont=Meslo\ LG\ M\ DZ:h10<CR>
 
 " CTags
 set tags=./tags,tags;$HOME
@@ -103,6 +110,11 @@ map g6 :tabnext 6<CR>
 map g7 :tabnext 7<CR>
 map g8 :tabnext 8<CR>
 map g9 :tabnext 9<CR>
+
+"Centering
+nmap <space> zz
+nmap n nzz
+nmap N Nzz
 
 "And from SO
 set nocompatible

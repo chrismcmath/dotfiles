@@ -13,6 +13,10 @@ alias -s zip='unzip'
 alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
+alias ember='cd ~/ember'
+alias annex='cd ~/ember/unity/EmberClient/Assets/Annex'
+alias meta='cd ~/ember/unity/Metadata'
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias unity='/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath "/"'

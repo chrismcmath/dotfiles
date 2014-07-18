@@ -31,6 +31,7 @@ alias gco='git checkout'
 alias gm='git merge'
 alias gs='git status'
 alias gl='git log'
+alias ..='cd ..'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

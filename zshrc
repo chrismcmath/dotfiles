@@ -32,6 +32,9 @@ alias gm='git merge'
 alias gs='git status'
 alias gl='git log'
 
+# Week check aliases
+alias current_week='~/text/week_check/open_most_recent_week_check'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -69,3 +72,5 @@ POWERLINE_FULL_CURRENT_PATH="true"
 POWERLINE_DETECT_SSH="true"
 
 #. /var/folders/sx/6s4pvyw91z3845j3pztqprgr0000gn/T/pip-6qutcE-build/powerline/bindings/zsh/powerline.zsh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

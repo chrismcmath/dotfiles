@@ -37,15 +37,25 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'thinca/vim-localrc'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'elzr/vim-json'
 
 "Need this after vundle
+call vundle#end()
 filetype plugin indent on
 
 "NERDTree
 let NERDTreeChDirMode=2
-" nnoremap <leader>n :NERDTreeTabsOpen .<CR>
+nmap  <leader>n :NERDTree .<CR>
+nnoremap <leader>n :NERDTree .<CR>
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeIgnore=['\.meta$']
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -78,12 +88,6 @@ nnoremap <space>s :Unite -quick-match buffer<cr>
 execute pathogen#infect()
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
-
-" Smooth scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 "Cursor highlighting
 au WinLeave * set nocursorline nocursorcolumn
@@ -154,3 +158,17 @@ function! UpdateTags()
     "execute CommandTFlush - can't recognise this
 endfunction
 autocmd BufWritePost *.cpp,*.h,*.c,*.cs,*.js,*.py call UpdateTags()
+
+func! WordProcessorMode() 
+    setlocal formatoptions=1 
+    setlocal noexpandtab 
+    map j gj 
+    map k gk
+    setlocal spell spelllang=en_us 
+    set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
+    set complete+=s
+    set formatprg=par
+    setlocal wrap 
+    setlocal linebreak 
+endfu 
+com! WP call WordProcessorMode()

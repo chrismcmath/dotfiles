@@ -37,11 +37,12 @@ hi Search guibg=LightBlue
 let @n = 'o//NOTE: '
 let @t = 'o//TODO: '
 let @e = 'oLog.Error("");hhh'
-let @d = 'oDebug.Log("");hhh'
-let @m = '0cwusingA€kb€kb;'
+let @d = 'oDebug.LogFormat("");hhh'
+let @m = '0cwusingA€kb;'
 let @c = '^i//'
 let @u = '^xx'
 let @r = '"_dwP'
+let @l = '0f{xs{' " Switch brackets to Allman
 
 "Ignores
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.meta,*.mat,*.prefab,*.yml,*.tga,*.txt,*.shader,*.anim,*.dll,*.xml*
@@ -59,6 +60,7 @@ filetype plugin indent on
 let NERDTreeChDirMode=2
 " nnoremap <leader>n :NERDTreeTabsOpen .<CR>
 map <leader>n <plug>NERDTreeTabsToggle<CR>
+
 let NERDTreeIgnore=['\.meta$']
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_console_startup=1

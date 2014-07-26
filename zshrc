@@ -14,8 +14,11 @@ alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
 alias synctory='cd /Volumes/@chrismcmath/projects/synctory_unity_api/Synctory\ API/Assets/Addons/Synctory/'
-
-alias cockateers='cd /Volumes/@chrismcmath/projects/cockateers'
+alias cock='cd /Volumes/@chrismcmath/projects/cockateers'
+alias jpp='cd /Volumes/@chrismcmath/projects/jpp'
+alias bs='cd /Volumes/@chrismcmath/projects/bitter_sea/unity/Assets/Scripts'
+alias gang='cd /Volumes/@chrismcmath/projects/gangbeasts_git'
+alias run_gb_server='/Volumes/@chrismcmath/projects/gangbeasts/GangBeasts\ Project/Builds/Server/Server.app/Contents/MacOS/Server -batchmode -nographics'
 
 #Ember specific stuff
 alias ember='cd /Volumes/@chrismcmath/projects/ember'
@@ -45,10 +48,11 @@ alias gco='git checkout'
 alias gm='git merge'
 alias gs='git status'
 alias gl='git log'
+alias grhh='git reset head --hard'
 alias ..='cd ..'
 alias rg='grep -r' #for 'recursively grep', needs a * after tho, need to parameterize
 alias cpwd="pwd | tr -d '\n' | pbcopy"
-alias pngify='mogrify -format png *.jpg && rm * .jpg'
+alias pngify='mogrify -format png *.jpg && rm *.jpg'
 
 #Skype can't find camera
 alias fixcam='sudo killall VDCAssistant'

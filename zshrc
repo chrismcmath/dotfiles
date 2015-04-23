@@ -13,13 +13,19 @@ alias -s zip='unzip'
 alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
-alias ember='cd ~/ember'
-alias annex='cd ~/ember/unity/EmberClient/Assets/Annex'
-alias meta='cd ~/ember/unity/Metadata'
+#Ember specific stuff
+alias ember='cd /Volumes/@chrismcmath/projects/ember'
+alias annex='cd /Volumes/@chrismcmath/projects/ember/unity/EmberClient/Assets/Annex'
+alias meta='cd /Volumes/@chrismcmath/projects/ember/unity/Metadata'
+alias nodejs='cd /Volumes/@chrismcmath/projects/ember/nodejs/dashboard && npm start'
+alias cache='/Volumes/@chrismcmath/cache/RunOSX.command'
+alias ember_mongo='mongod --config /usr/local/etc/mongod.conf'
+alias ember_redis='redis-server /usr/local/etc/redis.conf'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias unity='/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath "/"'
+alias unity5='/Applications/Unity5/Unity.app/Contents/MacOS/Unity -projectPath "/"'
 alias eprc="emacs ~/.procmailrc"
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls --color=auto'
@@ -31,6 +37,7 @@ alias gco='git checkout'
 alias gm='git merge'
 alias gs='git status'
 alias gl='git log'
+alias ..='cd ..'
 
 # Week check aliases
 alias current_week='~/text/week_check/open_most_recent_week_check'
@@ -59,6 +66,7 @@ alias current_week='~/text/week_check/open_most_recent_week_check'
 plugins=(git github pip python)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.profile
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin

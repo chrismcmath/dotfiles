@@ -18,44 +18,52 @@ set nobackup
 set noswapfile
 set pastetoggle=<F2>
 
+" This is the magic absolute/realtive line numbering
+set relativenumber
 set number
 set guioptions-=T
 set guioptions-=e
 set guioptions-=r
+
+"test
+nmap =j :%!python -m json.tool<CR>
 
 :set scrolloff=10
 
 set hlsearch
 hi Search guibg=LightBlue
 
+"Macros
+let @n = 'o//NOTE: '
+let @t = 'o//TODO: '
+let @e = 'oLog.Error("");hhh'
+let @d = 'oDebug.Log("");hhh'
+let @m = '0cwusingA€kb€kb;'
+let @c = '^i//'
+let @u = '^xx'
+let @r = '"_dwP'
+
 "Ignores
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.meta,*.mat,*.prefab,*.yml,*.tga,*.txt,*.shader,*.anim,*.dll,*.xml*
 "set wildignore=*,!*.cs
+
+"Screw off Ex mode
+nnoremap Q <nop>
 
 "Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+call vundle#rc()
 Bundle 'gmarik/vundle'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
-Plugin 'wincent/Command-T'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'thinca/vim-localrc'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'elzr/vim-json'
 
 "Need this after vundle
-call vundle#end()
 filetype plugin indent on
 
 "NERDTree
 let NERDTreeChDirMode=2
-nmap  <leader>n :NERDTree .<CR>
-nnoremap <leader>n :NERDTree .<CR>
+" nnoremap <leader>n :NERDTreeTabsOpen .<CR>
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 let NERDTreeIgnore=['\.meta$']
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -134,6 +142,9 @@ let g:Powerline_symbols = 'fancy'
 "SCVim
 let g:sclangTerm = "open -a iTerm.app"
 
+"Dash
+:nmap <silent> <leader>m <Plug>DashGlobalSearch
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -159,16 +170,48 @@ function! UpdateTags()
 endfunction
 autocmd BufWritePost *.cpp,*.h,*.c,*.cs,*.js,*.py call UpdateTags()
 
-func! WordProcessorMode() 
-    setlocal formatoptions=1 
-    setlocal noexpandtab 
-    map j gj 
-    map k gk
-    setlocal spell spelllang=en_us 
-    set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
-    set complete+=s
-    set formatprg=par
-    setlocal wrap 
-    setlocal linebreak 
-endfu 
-com! WP call WordProcessorMode()
+
+" Searches Dash for the word under your cursor in vim, using the keyword
+" operator, based on file type. E.g. for JavaScript files, I have it
+" configured to search j:term, which immediately brings up the JS doc
+" for that keyword. Might need some customisation for your own keywords!
+ 
+function! SearchDash()
+    " Some setup
+    let s:browser = "/usr/bin/open"
+    let s:wordUnderCursor = expand("<cword>")
+     
+    " Get the filetype (everything after the first ., for special cases
+    " such as index.html.haml or abc.css.scss.erb)
+    let s:fileType = substitute(expand("%"),"^[^.]*\.","",1)
+     
+    " Alternative ways of getting filetype, aborted
+    " let s:fileType = expand("%:e")
+    " let s:searchType = b:current_syntax.":"
+     
+    " Match it and set the searchType -- make sure these are the right shortcuts
+    " in Dash! Sort by priority in the match list below if necessary, because
+    " Tilt-enabled projects may have endings like .scss.erb.
+    if match(s:fileType, "js") != -1
+        let s:searchType = "js:" " can assign this to jQuery, too
+    elseif match(s:fileType, "css") != -1
+        let s:searchType = "css:"
+    elseif match(s:fileType, "html") != -1
+        let s:searchType = "html:"
+    elseif match(s:fileType, "rb") != -1
+        let s:searchType = "rb:" " can assign this to Rails, too
+    elseif match(s:fileType, "php") != -1
+        let s:searchType = "php:"
+    elseif match(s:fileType, "py") != -1
+        let s:searchType = "python:"
+    else
+        let s:searchType = ""
+    endif
+     
+    " Run it
+    let s:url = "dash://".s:searchType.s:wordUnderCursor
+    let s:cmd ="silent ! " . s:browser . " " . s:url
+    execute s:cmd
+    redraw!
+endfunction
+map <leader>d :call SearchDash()<CR>

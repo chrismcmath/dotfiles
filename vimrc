@@ -18,19 +18,37 @@ set nobackup
 set noswapfile
 set pastetoggle=<F2>
 
+" This is the magic absolute/realtive line numbering
+set relativenumber
 set number
 set guioptions-=T
 set guioptions-=e
 set guioptions-=r
+
+"test
+nmap =j :%!python -m json.tool<CR>
 
 :set scrolloff=10
 
 set hlsearch
 hi Search guibg=LightBlue
 
+"Macros
+let @n = 'o//NOTE: '
+let @t = 'o//TODO: '
+let @e = 'oLog.Error("");hhh'
+let @d = 'oDebug.Log("");hhh'
+let @m = '0cwusingA€kb€kb;'
+let @c = '^i//'
+let @u = '^xx'
+let @r = '"_dwP'
+
 "Ignores
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.meta,*.mat,*.prefab,*.yml,*.tga,*.txt,*.shader,*.anim,*.dll,*.xml*
 "set wildignore=*,!*.cs
+
+"Screw off Ex mode
+nnoremap Q <nop>
 
 "Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -78,12 +96,6 @@ nnoremap <space>s :Unite -quick-match buffer<cr>
 execute pathogen#infect()
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
-
-" Smooth scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 "Cursor highlighting
 au WinLeave * set nocursorline nocursorcolumn

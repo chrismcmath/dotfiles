@@ -53,12 +53,6 @@ nnoremap Q <nop>
 "Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-"Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
-"Need this after vundle
 filetype plugin indent on
 
 "NERDTree

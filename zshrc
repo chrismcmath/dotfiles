@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.profile
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Developer/Marmalade/6.1/s3e/bin
 bindkey -v
 
 #powerline stuff

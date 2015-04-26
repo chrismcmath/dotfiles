@@ -69,6 +69,8 @@ nmap <silent> <leader>s :set spell!<CR>
 " Tagbar
 nmap <leader>c :TagbarToggle<CR>
 
+"" Since ruby/yosemite update, need to specify we're looking into current working directory
+nmap <leader>t :CommandT ./<CR>
 " Quick refresh for CommandT
 nmap <leader>r :CommandTFlush<CR>
 

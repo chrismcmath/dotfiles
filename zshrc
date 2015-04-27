@@ -42,6 +42,8 @@ alias ..='cd ..'
 # Week check aliases
 alias current_week='~/text/week_check/open_most_recent_week_check'
 
+alias copy_public_key='pbcopy < ~/.ssh/id_rsa.pub'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

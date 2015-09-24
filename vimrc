@@ -66,8 +66,14 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " Spell checker
 nmap <silent> <leader>s :set spell!<CR>
 
+" Paste without indentation
+nmap <silent> <leader>p :set paste<CR>"*p:set nopaste<CR>
+
 " Tagbar
 nmap <leader>c :TagbarToggle<CR>
+
+" Shader lang (glsl)
+nmap <leader>g :set syntax=glsl<CR>
 
 "" Since ruby/yosemite update, need to specify we're looking into current working directory
 nmap <leader>t :CommandT ./<CR>

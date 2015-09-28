@@ -13,6 +13,10 @@ alias -s zip='unzip'
 alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
+alias synctory='cd /Volumes/@chrismcmath/projects/synctory_unity_api/Synctory\ API/Assets/Addons/Synctory/'
+
+alias cockateers='cd /Volumes/@chrismcmath/projects/cockateers'
+
 #Ember specific stuff
 alias ember='cd /Volumes/@chrismcmath/projects/ember'
 alias annex='cd /Volumes/@chrismcmath/projects/ember/unity/EmberClient/Assets/Annex'
@@ -22,8 +26,12 @@ alias cache='/Volumes/@chrismcmath/cache/RunOSX.command'
 alias ember_mongo='mongod --config /usr/local/etc/mongod.conf'
 alias ember_redis='redis-server /usr/local/etc/redis.conf'
 
+alias blog='cd ~/Documents/websites/hexo/blog/'
+alias hs='hexo server'
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias chromex='open /Applications/Google\ Chrome.app --args --allow-file-access-from-files'
 alias unity='/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath "/"'
 alias unity5='/Applications/Unity5/Unity.app/Contents/MacOS/Unity -projectPath "/"'
 alias eprc="emacs ~/.procmailrc"
@@ -38,6 +46,11 @@ alias gm='git merge'
 alias gs='git status'
 alias gl='git log'
 alias ..='cd ..'
+alias rg='grep -r' #for 'recursively grep', needs a * after tho, need to parameterize
+alias cpwd="pwd | tr -d '\n' | pbcopy"
+
+#Skype can't find camera
+alias fixcam='sudo killall VDCAssistant'
 
 # Week check aliases
 alias current_week='~/text/week_check/open_most_recent_week_check'

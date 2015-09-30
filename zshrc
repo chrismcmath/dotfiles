@@ -48,7 +48,7 @@ alias gl='git log'
 alias ..='cd ..'
 alias rg='grep -r' #for 'recursively grep', needs a * after tho, need to parameterize
 alias cpwd="pwd | tr -d '\n' | pbcopy"
-alias pngify='mogrify -format png *.jpg'
+alias pngify='mogrify -format png *.jpg && rm * .jpg'
 
 #Skype can't find camera
 alias fixcam='sudo killall VDCAssistant'

@@ -27,7 +27,7 @@ alias ember_mongo='mongod --config /usr/local/etc/mongod.conf'
 alias ember_redis='redis-server /usr/local/etc/redis.conf'
 
 alias blog='cd ~/Documents/websites/hexo/blog/'
-alias hs='hexo server'
+alias hgs='hexo geneate & hexo server'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -48,6 +48,7 @@ alias gl='git log'
 alias ..='cd ..'
 alias rg='grep -r' #for 'recursively grep', needs a * after tho, need to parameterize
 alias cpwd="pwd | tr -d '\n' | pbcopy"
+alias pngify='mogrify -format png *.jpg'
 
 #Skype can't find camera
 alias fixcam='sudo killall VDCAssistant'
